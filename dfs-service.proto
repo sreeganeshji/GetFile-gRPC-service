@@ -1,0 +1,46 @@
+syntax = "proto3";
+
+package dfs_service;
+
+service DFSService {
+
+    // Add your service calls here
+
+    // 1. REQUIRED (Parts 1 & 2): A method to store files on the server
+    rpc storeFile(stream Data) returns (Msg){}
+    
+    // 2. REQUIRED (Parts 1 & 2): A method to fetch files from the server
+    rpc fetchFile(Msg) returns (stream Data) {}
+    // 3. REQUIRED (Parts 1 & 2): A method to delete files from the server
+    rpc deleteFile(Msg) returns (Msg) {}
+    // 4. REQUIRED (Parts 1 & 2): A method to list all files on the server
+    rpc listFiles(Msg) returns (stream ListInfo) {}
+    // 5. REQUIRED (Parts 1 & 2): A method to get the status of a file on the server
+    rpc statusFile(Msg) returns (FileStatus) {}
+    // 7. Any other methods you deem necessary to complete the tasks of this assignment
+
+
+
+}
+
+// Add your message types here
+
+message Data
+{
+    bytes dataVal = 1;
+}
+message Msg{
+    string msgVal = 2;
+}
+message ListInfo
+{
+    string FileNameVal = 7;
+    int32 mtime = 8;//received from the server
+}
+message FileStatus
+{
+    string fileNameVal = 3;
+    int32 size = 4;
+    int32 ntime = 5;
+    int32 crc = 6;
+}
