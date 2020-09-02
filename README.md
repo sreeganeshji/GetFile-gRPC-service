@@ -1,6 +1,6 @@
 # gRPC-file-service
 
-TO IMPLEMENT GRPC PROCEDURE CALLS TO PERFORM FILE OPERATIONS LIKE DELETE, FETCH, STORE, ETC.
+Implements gRPC procedure calls to perform file operations like STORE, FETCH, DELETE, etc
 # Design
 The different procedures to delete, fetch, store, etc was implemented using gRPC libraries. the template of the procedures and the messages involved were declared as a protocol buffer which is compiled to generate the methods which implements the procedures to call the procedures using the socket interface. The client takes the requests and accordingly initiates the transfer of data in either as a stream or as blocks.
 # Flow of operation
